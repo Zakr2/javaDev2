@@ -4,7 +4,9 @@ public enum Table {
     CANDIDATE("candidate"),
     SKILL("skill"),
     CANDIDATE_SKILL("candidate_skill"),
-    VACANCY("vacancy");
+    VACANCY("vacancy"),
+    INTERVIEW("interview"),
+    USER("user");
 
     private String table;
 

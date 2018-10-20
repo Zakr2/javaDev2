@@ -12,6 +12,8 @@ public class EntityFactory {
                 return new CandidateSkill();
             case INTERVIEW:
                 return new Interview();
+            case USER:
+                return new User();
             default:
                 return null;
         }

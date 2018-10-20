@@ -1,9 +1,6 @@
 package dev.java.db;
 
-import dev.java.db.DAOs.CandidateDAO;
-import dev.java.db.DAOs.CandidateSkillDAO;
-import dev.java.db.DAOs.SkillDAO;
-import dev.java.db.DAOs.VacancyDAO;
+import dev.java.db.DAOs.*;
 import dev.java.db.model.*;
 
 import java.sql.Connection;
@@ -23,14 +20,22 @@ public class ConnectorDB {
 
     public static void main(String[] args) throws SQLException {
         Connection connection = getConnection();
-        VacancyDAO vacancyDAO = new VacancyDAO(connection, Table.VACANCY);
-        Vacancy vacancy = new Vacancy();
-        vacancy.setName("Java Developer");
-        vacancy.setMinExperienceInYears(1);
-        vacancy.setMaxExperienceInYears(3);
-        vacancy.setMinSalaryInDollars(200);
-        vacancy.setMaxSalaryInDollars(500);
-        vacancyDAO.create(vacancy);
+        UserDAO userDAO=new UserDAO(connection,Table.USER);
+        User user=new User();
+        user.setEmail("zakrevskii_evgenii@mail.ru");
+        user.setPassword("322");
+        user.setName("Evgeniy");
+        user.setSurname("Zakrevskiy");
+        userDAO.create(user);
+
+//        VacancyDAO vacancyDAO = new VacancyDAO(connection, Table.VACANCY);
+//        Vacancy vacancy = new Vacancy();
+//        vacancy.setName("Java Developer");
+//        vacancy.setMinExperienceInYears(1);
+//        vacancy.setMaxExperienceInYears(3);
+//        vacancy.setMinSalaryInDollars(200);
+//        vacancy.setMaxSalaryInDollars(500);
+//        vacancyDAO.create(vacancy);
 
     }
 }
