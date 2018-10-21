@@ -6,14 +6,14 @@ import dev.java.db.daos.UserDao;
 import dev.java.db.model.*;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ConnectorDB {
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException, ClassNotFoundException {
+        DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+    //    Class.forName("com.mysql.cj.jdb.Driver");
         ResourceBundle resource = ResourceBundle.getBundle("database");
         String url = resource.getString("db.url");
         String user = resource.getString("db.user");
@@ -21,7 +21,7 @@ public class ConnectorDB {
         return DriverManager.getConnection(url, user, pass);
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         Connection connection = getConnection();
         UserDao userDao=new UserDao(connection);
         for(User user: userDao.getAllEntities()){

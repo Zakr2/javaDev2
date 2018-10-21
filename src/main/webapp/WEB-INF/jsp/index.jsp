@@ -37,6 +37,9 @@
         ${error}<br/>
     </c:if>
 </p>
+<form method="get" action="/user">
+    <p><input type="submit" value="Users"></p>
+</form>
 <footer><spring:message code="app.version"/> ${version}</footer>
 </body>
 </html>

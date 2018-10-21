@@ -1,6 +1,5 @@
 package dev.java.db.daos;
 
-import dev.java.db.model.Candidate;
 import dev.java.db.model.User;
 
 import java.sql.*;
